@@ -30,15 +30,6 @@ const useStyles = Ui.makeStyles(theme => ({
       flexDirection: 'column'
     }
   },
-  brandLockup: {
-    alignItems: 'center',
-    display: 'flex',
-    minWidth: 0
-  },
-  logo: {
-    maxHeight: '100px',
-    maxWidth: '150px'
-  },
   sessionPanel: {
     alignItems: 'center',
     backgroundColor: theme.palette.action.hover,
@@ -200,7 +191,6 @@ function InfoSection({ title, rows }: { title: string; rows: InfoRow[] }) {
 export function App({
   models: { user, brand, impersonateUser },
   api: { close },
-  Components: { Logo },
   utils: { notify }
 }: EntryProps) {
   const classes = useStyles()
@@ -218,16 +208,11 @@ export function App({
     <Ui.Box className={classes.root}>
       <Ui.Box className={classes.hero}>
         <Ui.Box className={classes.heroTop}>
-          <Ui.Box className={classes.brandLockup}>
-            <Ui.Box mr={2}>
-              <Logo className={classes.logo} />
-            </Ui.Box>
-            <Ui.Box minWidth={0}>
-              <Ui.Typography variant="h6">Generic App Boilerplate</Ui.Typography>
-              <Ui.Typography color="textSecondary" variant="body2">
-                Running in the Rechat AppPlatform.
-              </Ui.Typography>
-            </Ui.Box>
+          <Ui.Box minWidth={0}>
+            <Ui.Typography variant="h6">Generic App Boilerplate</Ui.Typography>
+            <Ui.Typography color="textSecondary" variant="body2">
+              Running in the Rechat AppPlatform.
+            </Ui.Typography>
           </Ui.Box>
         </Ui.Box>
 
