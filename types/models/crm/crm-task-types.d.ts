@@ -1,0 +1,12 @@
+declare type CRMTaskTypes =
+  | 'Todo'
+  | 'Call'
+  | 'Chat'
+  | 'Email'
+  | 'In-Person Meeting'
+  | 'Mail'
+  | 'Note'
+  | 'Open House'
+  | 'Other'
+  | 'Text'
+  | 'Tour'

@@ -1,0 +1,16 @@
+declare type TTaskType =
+  | 'Call'
+  | 'Email'
+  | 'Text'
+  | 'Chat'
+  | 'Mail'
+  | 'Open House'
+  | 'Tour'
+  | 'In-Person Meeting'
+  | 'Showing'
+  | 'Note'
+  | 'Todo'
+  | 'Other'
+  | 'Todo'
+
+declare type TTaskStatus = 'PENDING' | 'DONE'
