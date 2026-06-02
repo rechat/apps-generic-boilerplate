@@ -72,7 +72,7 @@ export function App({
         <Ui.Box>
           <Ui.Typography variant="h6">Generic App Boilerplate</Ui.Typography>
           <Ui.Typography color="textSecondary" variant="body2">
-            Running from the Today page without a contact context.
+            Running in the Rechat AppPlatform.
           </Ui.Typography>
         </Ui.Box>
       </Ui.Box>

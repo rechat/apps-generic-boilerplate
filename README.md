@@ -74,7 +74,7 @@ Every Rechat app must expose a `manifest.json` at its root URL. This tells Recha
 | `inputs`  | Input configurations required by the app             |
 | `size`    | UI size: `sm`, `md`, or `lg`                         |
 
-The `inputs` array stays empty because this Generic app does not require a contact, deal, or other object context.
+The `inputs` array stays empty because this Generic app uses the shared AppPlatform runtime context.
 
 The `build` value is used to reference your bundle file (`bundle.<build>.js`), so Rechat always loads the correct version.
 
