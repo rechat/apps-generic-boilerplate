@@ -24,6 +24,7 @@ declare interface EntryProps {
   models: {
     user: IUser
     brand: IBrand
+    impersonateUser: Nullable<IImpersonateUser>
   }
   utils: {
     notify: (data: NotificationData) => void

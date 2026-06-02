@@ -47,7 +47,7 @@ function InfoSection({ title, rows }: { title: string; rows: InfoRow[] }) {
 }
 
 export function App({
-  models: { user, brand },
+  models: { user, brand, impersonateUser },
   api: { close },
   Components: { Logo },
   utils: { notify }
@@ -55,9 +55,11 @@ export function App({
   const classes = useStyles()
 
   const handleNotify = () => {
+    const displayName = impersonateUser?.display_name ?? user.display_name
+
     notify({
       status: 'success',
-      message: `Generic app loaded for ${user.display_name}.`
+      message: `Generic app loaded for ${displayName}.`
     })
   }
 
@@ -91,8 +93,20 @@ export function App({
           { label: 'User type', value: user.user_type },
           { label: 'Timezone', value: user.timezone }
         ]}
-        title="User"
+        title="Logged-in User"
       />
+
+      {impersonateUser && (
+        <InfoSection
+          rows={[
+            { label: 'Display name', value: impersonateUser.display_name },
+            { label: 'Email', value: impersonateUser.email },
+            { label: 'User type', value: impersonateUser.user_type },
+            { label: 'Timezone', value: impersonateUser.timezone }
+          ]}
+          title="Impersonated User"
+        />
+      )}
 
       <Ui.Box display="flex" justifyContent="flex-end">
         <Ui.Button color="primary" variant="outlined" onClick={close}>

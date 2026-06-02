@@ -11,7 +11,7 @@ The key concept: **your app does not bundle its own React or UI libraries.** Ins
 At runtime, Rechat loads your app's JavaScript bundle and calls its default export, passing in:
 
 - **React**, **Material-UI**, and **react-use** libraries (available via `window.libs`)
-- **Data models** like the logged-in `user` and active `brand`
+- **Data models** like the logged-in `user`, active `brand`, and optional `impersonateUser`
 - **API functions** like `close()`
 - **UI Components** provided by Rechat (logo, email composer, date picker, wizard forms, etc.)
 - **Utility functions** like `notify()` for showing toast notifications
@@ -86,7 +86,7 @@ Your app's compiled output is a single ES module (`bundle.<build>.js`). Rechat i
 // This is what Rechat does internally (simplified):
 const app = await import(`https://your-app.com/bundle.1653421766.js`)
 app.default({
-  models: { user, brand },
+  models: { user, brand, impersonateUser },
   api: { close },
   utils: { notify },
   hooks: {},
@@ -123,8 +123,9 @@ Your app's default export receives an `EntryProps` object:
 ```typescript
 interface EntryProps {
   models: {
-    user: IUser       // The logged-in Rechat user
-    brand: IBrand     // The active Rechat brand
+    user: IUser                                 // The logged-in Rechat user
+    brand: IBrand                               // The active Rechat brand
+    impersonateUser: Nullable<IImpersonateUser> // User being impersonated, if any
   }
   api: {
     close: () => void // Close the app dialog

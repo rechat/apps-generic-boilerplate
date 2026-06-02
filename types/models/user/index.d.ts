@@ -43,3 +43,5 @@ declare interface IUserDocusign extends IModel<'docusign_account'> {
 declare type BrandedUser = IUser & {
   brand_id?: Nullable<UUID>
 }
+
+declare type IImpersonateUser = IUser | BrandedUser
